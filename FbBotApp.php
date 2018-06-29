@@ -60,6 +60,23 @@ class FbBotApp
      {
          return $this->call('me/messages', $message->getData());
      }
+     
+     public function broadcast($message) {
+         $message_data = $message->getData();
+         $message_api['messages'][] = $message_data['message'];
+         $message_creatives = $this->call('me/message_creatives', $message_api);
+         
+         $message_broadcast = array(
+             'message_creative_id' => $message_creatives['message_creative_id'],
+             'notification_type' => 'REGULAR',
+             'messaging_type' => 'MESSAGE_TAG',
+             'tag' => 'NON_PROMOTIONAL_SUBSCRIPTION',             
+         );
+         
+         $broadcast_response = $this->call('me/broadcast_messages', $message_broadcast);
+         
+         return $broadcast_response;
+     }
 
      public function batch($messages)
      {
