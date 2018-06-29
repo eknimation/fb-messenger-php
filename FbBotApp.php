@@ -61,7 +61,7 @@ class FbBotApp
          return $this->call('me/messages', $message->getData());
      }
      
-     public function broadcast($message) {
+     public function broadcast_send($message) {
          $message_data = $message->getData();
          $message_api['messages'][] = $message_data['message'];
          $message_creatives = $this->call('me/message_creatives', $message_api);
