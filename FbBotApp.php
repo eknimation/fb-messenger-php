@@ -63,19 +63,26 @@ class FbBotApp
      
      public function broadcast_send($message, $tag) {
          $message_data = $message->getData();
-         $message_api['messages'][] = $message_data['message'];
-         $message_creatives = $this->call('me/message_creatives', $message_api);
-         
-         $message_broadcast = array(
-             'message_creative_id' => $message_creatives['message_creative_id'],
-             'notification_type' => 'REGULAR',
-             'messaging_type' => 'MESSAGE_TAG',
-             'tag' => $tag,             
-         );
-         
-         $broadcast_response = $this->call('me/broadcast_messages', $message_broadcast);
-         
-         return $broadcast_response;
+
+        if (!empty($message_data['message'])) {
+            $get_message_data = $message_data['message'];
+        } else {
+            $get_message_data = $message_data;
+        }
+
+        $message_api['messages'][] = $get_message_data;
+        $message_creatives = $this->call('me/message_creatives', $message_api);
+
+        $message_broadcast = array(
+            'message_creative_id' => $message_creatives['message_creative_id'],
+            'notification_type' => 'REGULAR',
+            'messaging_type' => 'MESSAGE_TAG',
+            'tag' => $tag,
+        );
+
+        $broadcast_response = $this->call('me/broadcast_messages', $message_broadcast);
+
+        return $broadcast_response;
      }
 
      public function batch($messages)
