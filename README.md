@@ -19,4 +19,4 @@ BASIC USAGE
 See this repo - [https://github.com/pimax/fb-messenger-php-example](https://github.com/pimax/fb-messenger-php-example)
 
 1.3 เพิ่ม Broadcast api
-
+1.3.1 เพิ่ม parameter tag ให้ broadcast
