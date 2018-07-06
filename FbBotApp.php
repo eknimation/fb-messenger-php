@@ -84,6 +84,27 @@ class FbBotApp
 
         return $broadcast_response;
      }
+     
+     public function segment_send($label_name) {
+        $message_api['name'] = $label_name;
+        $label_id = $this->call('me/custom_labels', $message_api);
+
+        return $label_id;
+     }
+     
+     public function label_to_psid_send($user, $label_id) {
+        $message_api['user'] = $user;
+        $result = $this->call('' .$label_id. '/label', $message_api);
+        
+        return $result;
+     }
+     
+     public function label_to_psid_remove($user, $label_id) {
+        $message_api['user'] = $user;
+        $result = $this->call('' .$label_id. '/label', $message_api, self::TYPE_DELETE);
+        
+        return $result;
+     }
 
      public function batch($messages)
      {
