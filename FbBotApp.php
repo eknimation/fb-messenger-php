@@ -61,7 +61,7 @@ class FbBotApp
          return $this->call('me/messages', $message->getData());
      }
      
-     public function broadcast_send($message, $tag) {
+     public function broadcast_send($message, $tag, $label_id = '') {
          $message_data = $message->getData();
 
         if (!empty($message_data['message'])) {
@@ -79,6 +79,10 @@ class FbBotApp
             'messaging_type' => 'MESSAGE_TAG',
             'tag' => $tag,
         );
+        
+        if(!empty($label_id)){
+            $message_broadcast['custom_label_id'] = $label_id;                        
+        }                
 
         $broadcast_response = $this->call('me/broadcast_messages', $message_broadcast);
 
