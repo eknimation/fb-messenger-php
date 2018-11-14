@@ -24,3 +24,4 @@ See this repo - [https://github.com/pimax/fb-messenger-php-example](https://gith
 1.3.3 เพิ่ม API link segment with user
 1.3.4 เพิ่ม API broadcast target
 1.3.5 เปลี่ยนเลข version endpoint
+1.4 เพิ่ม media template
