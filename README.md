@@ -18,6 +18,7 @@ BASIC USAGE
 ------------
 See this repo - [https://github.com/pimax/fb-messenger-php-example](https://github.com/pimax/fb-messenger-php-example)
 
+1.5 เพิ่ม Dynamic message สำหรับส่ง Broadcast
 1.3 เพิ่ม Broadcast api
 1.3.1 เพิ่ม parameter tag ให้ broadcast
 1.3.2 แก้ไขให้ Broadcast support type อื่นๆ นอกจาก Text type
