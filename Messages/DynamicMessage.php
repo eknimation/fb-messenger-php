@@ -21,7 +21,7 @@ class DynamicMessage {
         return [
                 'dynamic_text' => [
                     'text' => $this->text,
-                    'fallback_text' => 'Hello friend!'
+                    'fallback_text' => $this->text
                 ]
         ];
     }
